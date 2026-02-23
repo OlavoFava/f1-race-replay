@@ -5,7 +5,7 @@ import threading
 import time
 import arcade
 from src.interfaces.race_replay import F1RaceReplayWindow
-from src.gui.telemetry_stream_viewer import main as telemetry_viewer_main
+from src.insights.telemetry_stream_viewer import main as telemetry_viewer_main
 
 def run_arcade_replay(frames, track_statuses, example_lap, drivers, title,
                       playback_speed=1.0, driver_colors=None, circuit_rotation=0.0, total_laps=None,
@@ -41,7 +41,7 @@ def launch_telemetry_viewer():
     try:
       # Give the main application a moment to start the telemetry server
       time.sleep(3)
-      subprocess.run([sys.executable, "-m", "src.gui.telemetry_stream_viewer"], check=False)
+      subprocess.run([sys.executable, "-m", "src.insights.telemetry_stream_viewer"], check=False)
     except Exception as e:
       print(f"Failed to launch telemetry viewer: {e}")
   

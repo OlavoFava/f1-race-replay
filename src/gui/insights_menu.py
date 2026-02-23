@@ -164,7 +164,7 @@ class InsightsMenu(QMainWindow):
     def launch_example_window(self):
         print("🚀 Launching: Example Insight Window")
         # Open the Example PitWallWindow
-        from src.gui.example_pit_wall_window import ExamplePitWallWindow
+        from src.insights.example_pit_wall_window import ExamplePitWallWindow
         example_window = ExamplePitWallWindow()
         example_window.show()
         # Keep reference to prevent garbage collection
@@ -182,7 +182,7 @@ class InsightsMenu(QMainWindow):
         try:
             import subprocess
             import sys
-            subprocess.Popen([sys.executable, "-m", "src.gui.telemetry_stream_viewer"])
+            subprocess.Popen([sys.executable, "-m", "src.insights.telemetry_stream_viewer"])
         except Exception as e:
             print(f"Failed to launch telemetry viewer: {e}")
             self.show_placeholder_message("Telemetry Stream Viewer")
